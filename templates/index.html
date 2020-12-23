@@ -1,0 +1,29 @@
+{% macro pic_path(pic) %}
+	{{ url_for('return_pic', filename='%s' % pic) }}
+{% endmacro %}
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} LA TECHNIQUE DE LA RENOVATION {% endblock %}</h1>
+    <div class="image">
+      <img src="/static/photo LTR/Veranda.jpg" class="veranda">
+    </div>
+    <br>
+    <div class="bordure">
+      <h1 class="produits">NOS PRODUITS</h1>
+    </div>
+    {% for post in posts %}
+    <a href="{{ url_for('post', post_id=post['id']) }}">
+        <h2>{{ post['title'] }}</h2>
+    </a>
+    {% if filename is defined %}
+        <div id="pic"><a href="{{ pic_path(filename) }}" target="_blank"><img class="new" src="{{ pic_path(filename) }}"></a></div>
+    {% endif %}
+    <span class="badge badge-primary">{{ post['created'] }}</span>
+    <a href="{{ url_for('edit', id=post['id']) }}">
+        <span class="badge badge-warning">Edit</span>
+    </a>
+    <hr>
+{% endfor %}
+{% endblock %}
