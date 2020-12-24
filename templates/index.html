@@ -17,8 +17,9 @@
     <a href="{{ url_for('post', post_id=post['id']) }}">
         <h2>{{ post['title'] }}</h2>
     </a>
-    {% if filename is defined %}
-        <div id="pic"><a href="{{ pic_path(filename) }}" target="_blank"><img class="new" src="{{ pic_path(filename) }}"></a></div>
+    {% if post['filename'] is defined %}
+        <!-- <div id="pic"><a href="{{ pic_path(post['filename']) }}" target="_blank"><img class="new" src="post['filename']"></a></div> -->
+				<div id="pic"><a href="{{post['filename']}}" target="_blank"><img class="new" src="{{post['filename']}}"></a></div>
     {% endif %}
     <span class="badge badge-primary">{{ post['created'] }}</span>
     <a href="{{ url_for('edit', id=post['id']) }}">

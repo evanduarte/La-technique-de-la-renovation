@@ -6,5 +6,5 @@ CREATE TABLE posts (
     /*created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,*/
     title TEXT NOT NULL,
     content TEXT NOT NULL,
-    filename VARCHAR(37) NOT NULL UNIQUE
+    filename VARCHAR(100) NOT NULL UNIQUE
 );
